@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+<div class="quiz-container">
+
+    <div class="quiz-header">
+        <h1>Python</h1>
+        <div class="timer">⏳ <span id="time">15:00</span></div>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        {% for question in questions %}
+        <div class="question-box">
+            <h3>{{ forloop.counter }}. {{ question.question_text }}</h3>
+
+            <div class="options">
+                <label>
+                    <input type="radio" name="{{ question.id }}" value="A" required>
+                    {{ question.option_a }}
+                </label>
+                <label>
+                    <input type="radio" name="{{ question.id }}" value="B" required>
+                    {{ question.option_b }}
+                </label>
+                <label>
+                    <input type="radio" name="{{ question.id }}" value="C" required>
+                    {{ question.option_c }}
+                </label>
+                <label>
+                    <input type="radio" name="{{ question.id }}" value="D" required>
+                    {{ question.option_d }}
+                </label>
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="submit-btn">Submit Quiz</button>
+    </form>
+</div>
+
+<script>
+    let timeLeft = 15 * 60;
+    const timerDisplay = document.getElementById("time");
+
+    const countdown = setInterval(() => {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+
+        timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            alert("⏰ Time’s up! Your quiz has been submitted.");
+            document.querySelector("form").submit();
+        }
+
+        timeLeft--;
+    }, 1000);
+</script>
+
+</body>
+</html>
+
+

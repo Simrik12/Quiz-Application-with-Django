@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Quizzle</title>
+    <style>
+        body {
+            background-color: #E8F0FF;
+            color: #000000;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .quiz-container {
+            display: grid;
+            grid-template-columns: repeat(2, 280px);
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .quiz-card {
+            background-color: #ffffff;
+            border: 2px solid #cdd7f0;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .quiz-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .quiz-card h2 {
+            margin: 10px 0;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        .quiz-card a {
+            display: inline-block;
+            margin-top: 12px;
+            background-color: #b0c4ff;
+            color: #000000;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .quiz-card a:hover {
+            background-color: #99b1ff;
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #333333;
+        }
+
+        @media (max-width: 700px) {
+            .quiz-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Quizzle 🎓</h1>
+
+    <div class="quiz-container">
+        <div class="quiz-card">
+            <img src="https://toppng.com//public/uploads/preview/c-programming-icon-c-programming-language-logo-11562945679duaxtn3yq0.png" alt="C">
+            <h2>C Programming</h2>
+            <a href="{% url 'quiz_c' %}">Start Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://image.shutterstock.com/image-vector/python-programming-language-icon-vector-250nw-2486626399.jpg" alt="Python">
+            <h2>Python</h2>
+            <a href="{% url 'quiz_python' %}">Start Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMIDOtip3IaE0Dd-8JyEXUIWjSkUQjqK-mQ_k0Cu6NZis2_Cd1JqNmOwU7HBaE4qZhLNk&usqp=CAU" alt="Java">
+            <h2>Java</h2>
+            <a href="{% url 'quiz_java' %}">Start Quiz</a>
+        </div>
+
+        <div class="quiz-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+            <h2>JavaScript</h2>
+            <a href="{% url 'quiz_js' %}">Start Quiz</a>
+        </div>
+    </div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,124 @@
+body {
+    background-color: #E8F0FA;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.result-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.result-header h1 {
+    color: #002147;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.result-header h2 {
+    font-size: 1.3rem;
+    margin-top: 5px;
+    color: #023e8a;
+}
+
+.pass-text {
+    color: green;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.fail-text {
+    color: red;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.download-btn {
+    background-color: #002147;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.download-btn:hover {
+    background-color: #023e8a;
+}
+
+.question-box {
+    background-color: #f0f6ff;
+    border: 2px solid #002147;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.question-box.correct {
+    border-color: green;
+}
+
+.question-box.incorrect {
+    border-color: red;
+}
+
+.question-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.options {
+    list-style-type: none;
+    padding: 0;
+}
+
+.options li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.option-circle {
+    height: 8px;
+    width: 8px;
+    border: 2px solid #002147;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    background-color: #002147;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #023e8a;
+}
+
+

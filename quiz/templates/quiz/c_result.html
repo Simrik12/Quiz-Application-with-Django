@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C Result</title>
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="result-header">
+        <div>
+            <h1>Your Score: {{ score }}/{{ total }}</h1>
+            {% if score|add:0 >= 15 %}
+                <p class="pass-text">🎉 Congratulations! You passed the test!</p>
+            {% else %}
+                <p class="fail-text">💡 Better luck next time.</p>
+            {% endif %}
+        </div>
+        <form action="{% url 'download_pdf' 'C' %}" method="get">
+            <input type="hidden" name="score" value="{{ score }}">
+            <input type="hidden" name="total" value="{{ total }}">
+            <button type="submit" class="download-btn">↓ Download Report</button>
+        </form>
+    </div>
+
+    {% for result in results %}
+    <div class="question-box {% if result.is_correct %}correct{% else %}incorrect{% endif %}">
+        <h3>
+            {% if result.is_correct %}✅{% else %}❌{% endif %}
+            {{ forloop.counter }}. {{ result.question }}
+        </h3>
+
+        <ul class="options">
+            {% for letter, text in result.options.items %}
+                <li>
+                    <span class="option-circle"></span>
+                    {{ text }}
+                    {% if result.selected == letter and not result.is_correct %}❌{% elif result.correct_answer == letter %}✅{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+
+    <div class="nav-buttons">
+        <a href="{% url 'home' %}" class="btn back-btn">← Back to Home</a>
+        <a href="{% url 'quiz_python' %}" class="btn next-btn">Next Quiz →</a>
+    </div>
+</div>
+
+</body>
+</html>
+
